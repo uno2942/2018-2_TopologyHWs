@@ -50,6 +50,57 @@
 
  \maketitle
 \section*{Problem 1}
+\begin{enumerate}
+\item[A.] I'll first check the metric axioms.
+\begin{enumerate}
+\item $\bar{d}$ is a function
+\begin{equation*}
+d:X\times X\longrightarrow \rr
+\end{equation*}
+and $\bar{d}(x,y)=\min\{d(x,y), 1\}\geq 0$
+\item $\bar{d}(x,x)=d(x, x)=0$ for all $x$. Conversely, if $\bar{d}(x,y)=0$, then $\min\{d(x,y), 1\}=0\Rightarrow d(x,y)=0$ and $x=y$.
+\item Symmetric: $\bar{d}(x,y)=\min\{d(x,y), 1\}=\min\{d(y,x), 1\}=\bar{d}(y,x)$.
+\item $\bar{d}(x,y)+\bar{d}(y,z)=\min\{d(x,y), 1\}+\min\{d(y,z), 1\}= \min\{d(x,y)+d(y,z), d(x,y)+1, d(y,z)+1, 2\}\geq \min\{d(x,y)+d(y,z), 1\}\geq \min\{d(x,z), 1\}=\bar{d}(x,z)$
+\end{enumerate}
+Therefore, $\bar{d}$ is a metric.
+\item[B.] I'll first check the metric axioms.
+\begin{enumerate}
+\item $\rho$ is a function
+\begin{equation*}
+\rho:X\times X\longrightarrow \rr
+\end{equation*}
+and $\rho(x,y)=\frac{d(x, y)}{d(x,y)+1}\geq 0$
+\item $\rho(x,x)=\frac{d(x, x)}{d(x,x)+1}=0$ for all $x$. Conversely, if $\rho(x,y)=0$, then $d(x,y)=0$ and $x=y$.
+\item Symmetric: $\rho(x,y)=\frac{d(x,y)}{d(x,y)+1}=\frac{d(y,x)}{d(y,x)+1}=\rho(y,x)$.
+\item $\rho(x,y)+\rho(y,z)=\frac{d(x, y)}{d(x,y)+1}+\frac{d(y, z)}{d(y,z)+1}=2- \left(\frac{2+d(x, y)+d(y, z)}{d(x,y)d(y,z)+d(x,y)+d(y,z)+1}\right)\geq 2- \left(\frac{2+d(x, y)+d(y, z)}{d(x,y)+d(y,z)+1}\right)=2- \left(1+\frac{1}{d(x,y)+d(y,z)+1}\right)\geq 2- \left(1+\frac{1}{d(x,z)+1}\right)=\rho(x,z)$
+\end{enumerate}
+Therefore, $\rho$ is a metric. Since $f$ is bounded for $t\geq 0$, $\rho$ is bounded metric.
+\end{enumerate}
+\section*{Problem 2}
+Claim: $\overline{\rr^\infty}=\rr^\omega$ in $\rr^\omega$.
+\begin{proof}
+Let $x\in \rr^\omega$ and $U$ be an open neighborhood of $x$ in $\rr^\omega$. Since $p_i(U)=\rr$ for all $i$ but finitely many, let 
+$i_{\max}$ be an natural number such that $p_i(U)= \rr$ for $i\geq i_{\max}$. Let $y\in R^\infty$ that $y_i=p_i(x)$ for $i<i_{\max}$ and 
+$y=0$ for elsewhere. Then, $y\in U$. This is true for all open neighborhood of $x$, so $x\in \overline{\rr^\infty}$.
+\end{proof}
+\section*{Problem 3}
+Claim: $\overline{\rr^\infty}=\rr^\infty \cup \{(x_i)\in \rr^\omega|\lim\limits_{i\rightarrow \infty}x_i\rightarrow 0\}$ in $\rr^\omega$.
+\begin{proof}
+Let $x\in \rr^\omega\setminus \rr^\infty$ and $U$ be an open neighborhood of $x$ in $\rr^\omega$. Since $x\notin \rr^\infty$, $x_i\neq 0$ 
+for infinitely many $i$. Let the nonzero sequence $\{x_j\}$. Let $\lim\sup \abs{x_j}\neq 0$, then there exists subsequence of $\{\abs{x_j}\}$
+ such that converges to $c\in (0,\infty]$ and $B(x, \min\{c/2, 1\})$ is a open neighborhood of $x$ disjoint with $\rr^\infty$.
 
+Conversely, let $\lim\sup \abs{x_j}= 0$, then $\lim\limits_{j\rightarrow \infty} x_j= 0$ and for any $\epsilon>0$, $B(x, \epsilon)$ contains $0$ in $i$th coordinate for all $i$ but finitely many... Let $i_{\max}\in \mathbb{N}$ such that $0\in p_i(B(x, \epsilon))$ for $i\geq i_{\max}$. Then, $(y_i)\in \rr^\infty$ such that $y_i=x_i$ for $i< i_{\max}$ and $y=0$ for $i\geq i_{\max}$. Therefore, $x\in \overline{R^\infty}$.
+
+Consequently, $\overline{R^\infty}=\rr^\infty \cup \{(x_i)\in \rr^\omega|\lim\limits_{i\rightarrow \infty}x_i\rightarrow 0\}$.
+\end{proof}
+\section*{Problem 4}
+
+\section*{Problem 5}
+\section*{Problem 6}
+\section*{Problem 7}
+\section*{Problem 8}
+\section*{Problem 9}
+\section*{Problem 10}
 
 \end{document}
