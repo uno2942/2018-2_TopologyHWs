@@ -55,7 +55,7 @@
 \begin{enumerate}
 \item $\bar{d}$ is a function
 \begin{equation*}
-d:X\times X\longrightarrow \rr
+\bar{d}:X\times X\longrightarrow \rr
 \end{equation*}
 and $\bar{d}(x,y)=\min\{d(x,y), 1\}\geq 0$
 \item $\bar{d}(x,x)=d(x, x)=0$ for all $x$. Conversely, if $\bar{d}(x,y)=0$, then $\min\{d(x,y), 1\}=0\Rightarrow d(x,y)=0$ and $x=y$.
@@ -95,8 +95,39 @@ Conversely, let $\lim\sup \abs{x_j}= 0$, then $\lim\limits_{j\rightarrow \infty}
 Consequently, $\overline{R^\infty}=\rr^\infty \cup \{(x_i)\in \rr^\omega|\lim\limits_{i\rightarrow \infty}x_i\rightarrow 0\}$.
 \end{proof}
 \section*{Problem 4}
-
+First, I'll show that $D$ is a metric.
+\begin{enumerate}
+\item $\bar{d}$ is a function
+\begin{equation*}
+D:X\times X\longrightarrow \rr
+\end{equation*}
+and $D(x,y)\geq 0$
+\item $D(x,x)=\sum\limits_{i=1}^n d(x_i, x_i)=0$ for all $x$. Conversely, if $D(x,y)=0$, then $ 0=D(x,y)\leq d(x_i, y_i)\leq 0$ for each $i$, so $x_i=y_i$ and $x=y$.
+\item Symmetric: $D(x,y)=\sum\limits_{i=1}^n d(x_i, y_i)=\sum\limits_{i=1}^n d(y_i, x_i)=D(y,x)$.
+\item $D(x,y)+D(y,z)=\sum\limits_{i=1}^n d(x_i, y_i)+ d(y_i, z_i)\geq \sum\limits_{i=1}^n d(x_i, z_i)=D(x,z)$
+\end{enumerate}
+Therefore, $\bar{D}$ is a metric.
+Let $\B=\{B_1\times B_2\times\cdots\times B_n\subset \rr^n|B_i\text{ is an open interval of }\rr\}$ be a basis of $\rr^n$. Let $x\in B\in \B$, then there exists $\epsilon>0$ such that $B_d(x_i, \epsilon)\subset p_i(B)$ for all $i$ for each $p_i(B)$ is an open neighborhood and there exists small $\epsilon_i>0$ such that $B_d(x_i, \epsilon_i)\subset p_i(B)$ and we can set $\epsilon=\min\{\epsilon_i\}$. Therefore, $B_D(x, \epsilon)\subset B$ since for any $y\in B_D(x, \epsilon)$, $d(x_i, y_i)<\epsilon$.
 \section*{Problem 5}
+Let $d$ be a euclidean metric on $\rr$ and let $\bar{d}$ be a bounded metric on $\rr$ as in problem 1 (A). Let $\bar{d}_1$ be a function on $\rr^2$ such that
+\begin{equation*}
+\bar{d}_1(x,y)=
+\begin{cases}
+\bar{d}(x_2,y_2) & \text{if }x_1=y_1 \\
+1 & \text{if } x_1\neq y_1.
+\end{cases}
+\end{equation*}
+I'll show that $\bar{d}_1$ is a metric.
+\begin{enumerate}
+\item $\bar{d}_1(x,y)\geq 0$
+\item $\bar{d}_1(x,x)=\bar{d}(x_2, x_2)=0$ for all $x$. Conversely, if $\bar{d}_1(x,y)=0$, then $x_1=y_1$ and $\bar{d}(x_2,y_2)=0$ implies $x_2=y_2$. Therefore, $x=y$.
+\item Symmetric: If $x_1\neq y_1$, $\bar{d}_1(x,y)=1=\bar{d}_1(y,x)$. If $x_1=y_1$, $\bar{d}_1(x,y)=\bar{d}(x_2,y_2)=\bar{d}(y_2, x_2)=\bar{d}_1(y,x)$.
+\item If $x_1\neq y_1$ or $y_1\neq z_1$, $\bar{d}_1(x,y)+\bar{d}_1(y,z)\leq 1 \leq \bar{d}_1(x,z)$. Conversely, if $x_1=y_1=z_1$, $\bar{d}_1(x,y)+\bar{d}_1(y,z)=\bar{d}(x_2,y_2)+\bar{d}(y_2,z_2)=\leq \bar{d}(x_2,z_2) = \bar{d}_1(x,z)$
+\end{enumerate}
+Therefore, $\bar{d}_1$ is a metric.
+
+I need to show that $\bar{d}_1$ generate dictionary topology. In the last homework, we showed that the product topology on $\rr^d\times \rr$ is equal to the dictionary topology on $\rr^2$. Therefore, we can set the basis of dictionary topology on $\rr^2$ be $\B=\{\{a\}\times(b,c)|a,b,c\in\rr, -\infty<b<c<\infty\}$. For $x\in B=\{a\}\times(b,c)\in \B$, we can set $\epsilon=\min\{\frac{x_2-b}{2}, \frac{c-x_2}{2}\}$ so that $B_{\bar{d}_1}(x, \epsilon)\subset B$. Conversely, for any $y\in B_{\bar{d}_1}(x, \epsilon)$ for fixed $\epsilon$, we can set $\delta=\min\{\frac{\epsilon-(y_2-x_2)}{4}, \frac{\epsilon-(x_2-y_2)}{4}\}$ so that $\{y_1\}\times (y-\delta, y+\delta)\subset B_{\bar{d}_1}(x, \epsilon)$. (For $\epsilon\leq 1$, this can be viewed as setting small interval in the interval, and for $\epsilon>1$, we can arbitrary set $\delta>0$ since $B_{\bar{d}_1}(x, \epsilon)$ is the whole set.)
+
 \section*{Problem 6}
 \section*{Problem 7}
 \section*{Problem 8}
