@@ -49,6 +49,35 @@
 \author{SungBin Park, Physics, 20150462} 
 
  \maketitle
+\section*{Problem 8 in HW 3}
 \section*{Problem 1}
+Take arbitrary two point $x,y\in f(X)$. $f$ is surjection for codomain $f(X)$, so there exists $\alpha, \beta\in X$ such that $f(\alpha)=x$ and $f(\beta)=y$. Since $X$ is path connected, there exists continuous $\gamma:[a,b]\rightarrow X$, $a,b\in \rr$ such that $\gamma(a)=\alpha$, $\gamma(b)=\beta$. Consider $f\circ \gamma$, then $f\circ \gamma:[a,b]\rightarrow f(X)$ such that $f\circ \gamma(a)=f(\alpha)=x$ and $f\circ\gamma(b)=f(\beta)=y$. Then, it is path from $x$ to $y$, and $f(X)$ is path connected.
+\section*{Problem 2}
+Let $C$, $D$ be separation of $\bigcup A_n$, then for each $i$, $A_i\subset C$ or $D$ since $A_i$'s are connected. WLOG, let $A_1\subset C$, and $j$ be the smallest integer such that $A_j \subset D$ since $\mathbb{N}$ is well-ordered set. Then, $A_{j-1}\subset C$ and it means connected $A_{j-1}\cup A_{j}$ have a separation $C$, $D$... Therefore, $A_i\subset C$ for all $i$, and it is contradiction to existence of separation. Therefore, $\bigcup A_n$ is connected.
+\section*{Problem 3}
+Fix $x\in A_{\alpha_0}$ and let $\mathcal{C}_x=\{A_{\alpha}|x\in A_{\alpha}\}$, then $A_{\alpha_0}\bigcup_{A\in \mathcal{C}_x} A$ is connected. Let it $B_x$. Then, $\bigcup_{y\in A_{\alpha_0}} B_y$ is connected since $x\in A_{\alpha_0}\subset B_y$ for each $y\in A_{\alpha_0}$. Therefore, $\bigcup A_\alpha$ is connected.
+\section*{Problem 4}
+Let $\overline{A}\cap \overline{X-A}\cap C=\phi$. Then, $\left(\overline{A}\cap C\right)\cap\left(\overline{X-A}\cap C\right)=\phi$. However, $\left(\overline{A}\cap C\right)^c$ and $\left(\overline{X-A}\cap C\right)^c$ is open set in $C$ and forms separation of $C$ since $\left(\overline{A}\cap C\right)\cup \left(\overline{A}\cap C\right) = \left(\overline{A}\cup \overline{X-A}\right) \cap C=C$ and they are disjoint. Therefore, $C$ is not connected, which is contradiction. Therefore, $\overline{A}\cap \overline{X-A}\cap C\neq\phi$.
+\section*{Problem 5}
+I'll use modify the proof of the theorem in Munkers: \textit{A finite cartesian product of connected space is connected.}
+
+Let's fix $a\in A^c$, $b\in B^c$ since they are proper subset. We know that $X\times b$(resp. $a\times Y$) is connected since it is homeomorphic wiht $X$(resp. $Y$). As a result, $(X\times b) \cup (a\times Y)$ is connected. Define
+\begin{equation*}
+\begin{split}
+T_x&=(X\times b)\cup (x\times Y) \\
+S_y&=(X\times y)\cup (a\times Y),
+\end{split}
+\end{equation*}
+then $\bigcup_{x\in A^c} T_x$ and $\bigcup_{y\in B^c} S_y$ are connected since they shares common point $(a,b)$. By the same reason, $\left(\bigcup_{x\in A^c} T_x\right) \cup \left(\bigcup_{y\in B^c}\right)S_y$ is connected. They ...
+\section*{Problem 6}
+
+\section*{Problem 7}
+\section*{Problem 8}
+\section*{Problem 9}
+\section*{Problem 10}
+\section*{Problem 11}
+\section*{Problem 12}
+\section*{Problem 13}
+\section*{Problem 14}
 
 \end{document}
