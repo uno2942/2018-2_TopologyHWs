@@ -83,12 +83,33 @@ x_{\alpha} & \text{For }\alpha\in L
 Then, $y\in U$. Therefore, $x\in \overline{\bigcup_{K\in F}X_K}$ and $X=\overline{\bigcup_{K\in F}X_K}$.
 \end{enumerate}
 \section*{Problem 7}
+The nontrivial term is $\{0\}\times [-1, 1]$, so I'll show that $\overline{S}$ contains the term. Let $a\in (-1, 1)$. For any $r>0$, there exists $n$ such that $ \frac{1}{2\pi n + \frac{3\pi}{2}}<r$. For the $n$, $\left(\frac{1}{2\pi n + \frac{\pi}{2}}, 1\right)$, $\left(\frac{1}{2\pi n + \frac{3\pi}{2}}, -1\right)\in S$. We know that $\sin{\frac{1}{x}}$ is continuous(using real analysis and $\epsilon-\delta$ argument) on connected space $\left[\frac{1}{2\pi n + \frac{\pi}{2}},\frac{1}{2\pi n + \frac{3\pi}{2}}\right]$, so there exists $(b,a)$ such that $b\in \left(\frac{1}{2\pi n + \frac{\pi}{2}},\frac{1}{2\pi n + \frac{3\pi}{2}}\right)$. It means $(b,a)\in B_r((0, a))$ and it means $(0, a)\in \overline{S}$ for $a\in (-1, 1)$. For $a=1$ or $-1$, we can use $x=\frac{1}{2\pi n + \frac{\pi}{2}}$ or $\frac{1}{2\pi n + \frac{3\pi}{2}}$ and make $B_r((0, a))$ contains it. Therefore, $\{0\}\times[-1,1]\subset \overline{S}$
 \section*{Problem 8}
+Consider $f:\rr^n\rightarrow$
 \section*{Problem 9}
+Define $g:S^1\rightarrow \rr$ such that $g(x)=f(x)-f(-x)$. Then, $g(x)$ is continuous since $f(-x)$ is continuous.($h:x\rightarrow -x$ is continuous on domain $\rr^2$ so on domain $S^1$.) Fix $(1,0)\in S^1$ and assume $g((1,0))>0$, then $g((-1, 0))=-g((1,0))<0$. Since $g$ is continuous and $S^1$ is connected by previous problem, there exists $c$ in $S^1$ such that $g(c)=0$ and it means $f(c)=f(-c)$.
 \section*{Problem 10}
+Before staring, I'll prove an easy lemma.
+\begin{lemma}
+Let $A$ and $B$ are homeomorphic topological space and $\varphi$ be the homeomorphism. For $A'=A\setminus\{a_1, a_2, \ldots, a_n\}$, $A'$ is hemeomorphic with $\varphi(A')=B\setminus\varphi(\{a_1, a_2, \ldots, a_n\})=B'$.(Assume $A',B'$ have subspace topology.)
+\end{lemma}
+\begin{proof}
+For simplicity, let $S=\{a_1, a_2, \ldots, a_n\}$. Modify $\varphi$: $\varphi'=\varphi|_{A'}$. This is bijective, so I'll show that this is bicontinuous. For any open set $V'$ in $B'$, there exists $V$ in $B$ such that $V\setminus V'\subset \varphi(S)$. $\varphi^{-1}(V)$ is open in $A$ and $\left(\varphi'\right)^{-1}(V')=\varphi^{-1}(V)\setminus S$. Therefore, $\varphi'$ is continuous and same argument for $\left(\varphi'\right)^{-1}$ prove that the inverse is continuous. Therefore, $\varphi'$ is hemeomorphism.
+\end{proof}
+Let's subtract $(-1, 0)$, $(1, 0)$, $(0, -1)$ from $T$ and let it $T'$, then $T'$ is connected since $T'= ((-1,1)\times\{0\})\cup (\{0\}\times (-1,0])$. However, subtracting three points from $[0, 1]$ is not connected since ...
 \section*{Problem 11}
+Let $(a,b),(c,d)\in X\times Y$. Since $X,Y$ is path connected, there exists path $\gamma_X:[\alpha,\beta]\rightarrow X$, $\gamma_Y:[\gamma, \delta]\rightarrow Y$ such that $\gamma_X(\alpha)=a$, $\gamma_X(\beta)=c$, $\gamma_Y(\gamma)=b$, $\gamma_Y(\delta)=d$. Normalise the domain by $[0,1]$ using $h_X, h_Y:\rr\rightarrow \rr$, $h_X=(\beta-\alpha)x+\alpha$, $h_Y=(\delta-\gamma)x+\gamma$, $\gamma'_X=\gamma_X\circ h_X$, $\gamma'_Y=\gamma_Y\circ h_Y$. Make $\gamma:[0, 1]\rightarrow X\times Y$ by $\gamma(t)=(\gamma_X(t), \gamma_Y(t))$, then it is continuous and $\gamma(0)=(a,b)$, $\gamma(1)=(c,d)$. Therefore, $X\times Y$ is path connected.
 \section*{Problem 12}
+Let $p,q\in \rr^2\setminus A$ and consider $f_a(x)=(1, a)x+p$, $x\geq 0$. Let $f_a(\rr^+)\cap A\neq \phi$ for all $a\in \rr^+$, then we can set $h:\rr^+\rightarrow A$ such that $h(a)$ is an element in $f_a(\rr^+)\cap A$. Since $f_a(\rr^+)$ is disjoint for different $a$, $h$ is injective and $A$ is uncountable which is contradiction. Therefore, there exists $a$ (even uncountable) that $f_a(\rr^+)\cap A=\phi$. By the same argument there exists $g_b$ such that $g_b(0)=q$ and $g_b(\rr^+)\cap A=\phi$. If $a=b$, we can choose another $b$, so $g_b(\rr^+)\cap f_a(\rr^+)\neq\phi$. Let the point $r$ ...
 \section*{Problem 13}
+I'll state a lemma.
+\begin{lemma}
+For any radius $r$, ball with radius $r$ in $\rr^n$ is path-connected.
+\end{lemma}
+\begin{proof}
+For any $p,q\in B_r(x)$ for some $x\in \rr^n$, $p(1-t)+qt\in B_r(x)$ for $t\in [0,1]$ since $(p(1-t))^2+(qt)^2\leq 2 (1-t)tp\cdot q\leq \abs{p}\abs{q}\leq r^2$.
+\end{proof}
+Let's fix $p\in U$ which is open connected subset of $\rr^n$. Let $P$ be a path connected component in $U$ containing $p$. This is not empty since open ball in $U$ containing $p$ is path connected. Let $P\neq U$. First, $P$ is open since for any $q\in P$, the ball containing $q$ is path connected, and joining path from $p$ to $q$ and from $q$ to a point in the ball makes path from $p$ to the point in the ball. Since $U$ is connected, $P$ is not closed, so $\overline{P}\setminus P\neq \phi$. Let a point in the set $x$. Take a ball in $U$ containing $x$, then it intersect with $P$. Take a point in the intersection, then there exists path from $p$ to the point and from the point to $x$. Therefore, $x\in P$, which is contradiction. Therefore, $P=U$ and $U$ is path connected.
 \section*{Problem 14}
 
 \end{document}
