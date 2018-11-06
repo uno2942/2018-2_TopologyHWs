@@ -53,7 +53,7 @@
 \section*{Problem 1}
 Take arbitrary two point $x,y\in f(X)$. $f$ is surjection for codomain $f(X)$, so there exists $\alpha, \beta\in X$ such that $f(\alpha)=x$ and $f(\beta)=y$. Since $X$ is path connected, there exists continuous $\gamma:[a,b]\rightarrow X$, $a,b\in \rr$ such that $\gamma(a)=\alpha$, $\gamma(b)=\beta$. Consider $f\circ \gamma$, then $f\circ \gamma:[a,b]\rightarrow f(X)$ such that $f\circ \gamma(a)=f(\alpha)=x$ and $f\circ\gamma(b)=f(\beta)=y$. Then, it is path from $x$ to $y$, and $f(X)$ is path connected.
 \section*{Problem 2}
-Let $C$, $D$ be separation of $\bigcup A_n$, then for each $i$, $A_i\subset C$ or $D$ since $A_i$'s are connected. WLOG, let $A_1\subset C$, and $j$ be the smallest integer such that $A_j \subset D$ since $\mathbb{N}$ is well-ordered set. Then, $A_{j-1}\subset C$ and it means connected $A_{j-1}\cup A_{j}$ have a separation $C$, $D$... Therefore, $A_i\subset C$ for all $i$, and it is contradiction to existence of separation. Therefore, $\bigcup A_n$ is connected.
+Let $C$, $D$ be separation of $\bigcup A_n$, then for each $i$, $A_i\subset C$ or $D$ since $A_i$'s are connected. WLOG, assume $A_1\subset C$, and $j$ be the smallest integer such that $A_j \subset D$ since $\mathbb{N}$ is well-ordered set. Then, $A_{j-1}\subset C$ and it means connected $A_{j-1}\cup A_{j}$ have a separation $C$, $D$. Since $A_{j-1}\cap A_{j}\neq \phi$, it is connected, so it generates contradiction. Therefore, $A_i\subset C$ for all $i$, and it is contradiction to existence of separation. Therefore, $\bigcup A_n$ is connected.
 \section*{Problem 3}
 Fix $x\in A_{\alpha_0}$ and let $\mathcal{C}_x=\{A_{\alpha}|x\in A_{\alpha}\}$, then $A_{\alpha_0}\bigcup_{A\in \mathcal{C}_x} A$ is connected. Let it $B_x$. Then, $\bigcup_{y\in A_{\alpha_0}} B_y$ is connected since $x\in A_{\alpha_0}\subset B_y$ for each $y\in A_{\alpha_0}$. Therefore, $\bigcup A_\alpha$ is connected.
 \section*{Problem 4}
@@ -61,14 +61,14 @@ Let $\overline{A}\cap \overline{X-A}\cap C=\phi$. Then, $\left(\overline{A}\cap 
 \section*{Problem 5}
 I'll use modify the proof of the theorem in Munkers: \textit{A finite cartesian product of connected space is connected.}
 
-Let's fix $a\in A^c$, $b\in B^c$ since they are proper subset. We know that $X\times b$(resp. $a\times Y$) is connected since it is homeomorphic wiht $X$(resp. $Y$). As a result, $(X\times b) \cup (a\times Y)$ is connected. Define
+Let's fix $a\in A^c$, $b\in B^c$ since they are proper subset. We know that $X\times b$ (resp. $a\times Y$) is connected since it is homeomorphic with $X$ (resp. $Y$). As a result, $(X\times b) \cup (a\times Y)$ is connected. Define
 \begin{equation*}
 \begin{split}
 T_x&=(X\times b)\cup (x\times Y) \\
 S_y&=(X\times y)\cup (a\times Y),
 \end{split}
 \end{equation*}
-then $\bigcup_{x\in A^c} T_x$ and $\bigcup_{y\in B^c} S_y$ are connected since they shares common point $(a,b)$. By the same reason, $\left(\bigcup_{x\in A^c} T_x\right) \cup \left(\bigcup_{y\in B^c}\right)S_y$ is connected. They ...
+then $\bigcup_{x\in A^c} T_x$ and $\bigcup_{y\in B^c} S_y$ are connected since they shares common point $(a,b)$. By the same reason, $\left(\bigcup_{x\in A^c} T_x\right) \cup \left(\bigcup_{y\in B^c}\right)S_y$ is connected. For any point $(c,d)\in (X\times Y)-(A\times B)$, $c\notin A$ or $d\notin B$, and it means $(c,d)\in \left(\bigcup_{x\in A^c} T_x\right) \cup \left(\bigcup_{y\in B^c}\right)S_y$. Therefore, $(X\times Y)-(A\times B)=\left(\bigcup_{x\in A^c} T_x\right) \cup \left(\bigcup_{y\in B^c}\right)S_y$ and it is connected.
 \section*{Problem 6}
 \begin{enumerate}
 \item[A.] Let $K=\{\alpha_1, \ldots, \alpha_n\}$ and $\psi_K:X_K\rightarrow X^{n}$ such that $\psi_K=(\pi_{\alpha_1}, \ldots, \pi_{\alpha_n})$. By the definition of $X_K$, $\psi_K$ is bijective and bicontinuous. Thus $X_K$ is connected.
@@ -85,7 +85,27 @@ Then, $y\in U$. Therefore, $x\in \overline{\bigcup_{K\in F}X_K}$ and $X=\overlin
 \section*{Problem 7}
 The nontrivial term is $\{0\}\times [-1, 1]$, so I'll show that $\overline{S}$ contains the term. Let $a\in (-1, 1)$. For any $r>0$, there exists $n$ such that $ \frac{1}{2\pi n + \frac{3\pi}{2}}<r$. For the $n$, $\left(\frac{1}{2\pi n + \frac{\pi}{2}}, 1\right)$, $\left(\frac{1}{2\pi n + \frac{3\pi}{2}}, -1\right)\in S$. We know that $\sin{\frac{1}{x}}$ is continuous(using real analysis and $\epsilon-\delta$ argument) on connected space $\left[\frac{1}{2\pi n + \frac{\pi}{2}},\frac{1}{2\pi n + \frac{3\pi}{2}}\right]$, so there exists $(b,a)$ such that $b\in \left(\frac{1}{2\pi n + \frac{\pi}{2}},\frac{1}{2\pi n + \frac{3\pi}{2}}\right)$. It means $(b,a)\in B_r((0, a))$ and it means $(0, a)\in \overline{S}$ for $a\in (-1, 1)$. For $a=1$ or $-1$, we can use $x=\frac{1}{2\pi n + \frac{\pi}{2}}$ or $\frac{1}{2\pi n + \frac{3\pi}{2}}$ and make $B_r((0, a))$ contains it. Therefore, $\{0\}\times[-1,1]\subset \overline{S}$
 \section*{Problem 8}
-Consider $f:\rr^n\rightarrow$
+Consider $f:\rr^{n+1}\setminus\{0\}\rightarrow\rr^{n+1}$ such that $f(x)=\frac{x}{\abs{x}}$. Then, the codomain of $f$ is $S^n$ and this is surjective on $S^n$ since $f(x)=x$ for $x\in S^n$. For $x\neq 0$, $f(x)$ is continuous since $\abs{x}=\sqrt{\sum\limits_{i=1}^{n+1} x_i^2}$ is nonzero and continuous. If we show that $\rr^{n+1}\setminus\{0\}$ is path connected, we can show that $S^n$ is path connected.
+
+Let $x,y\in \rr^{n+1}\setminus\{0\}$. If $(1-t)x+ty$ for $0\leq t\leq 1$ does not contains $0$, take $\gamma:[0,1]\rightarrow \rr^{n+1}$ such that $\gamma(t)=(1-t)x+ty$. This is a path from $x$ to $y$.
+
+Assume $(1-t)x+ty$ contains $0$ at $t\in (0,1)$. If $(1-t)x+ty$ contains $(1, 0, \ldots, 0)$ for some $t\in (0,1)$, then take $\gamma_1(t)=(1-t)x+(0, 1, 0, \ldots, 0)t$ for $0\leq t \leq 1$ and $\gamma_2(t)=(0, 1, 0, \ldots, 0)(2-t)+(t-1)y$ for $1\leq t \leq 2$. Then, $\gamma_1,\gamma_2$ does not contains $0$ since $x,y$ is contained in a straight line through $0$ and $(1,0, \ldots, 0)$. Taking \begin{equation*}
+\gamma(t)=\begin{cases}
+\gamma_1(t) & \text{For }0\leq t\leq 1 \\
+\gamma_2(t) & \text{For }1\leq t\leq 2 \\
+\end{cases}
+\end{equation*}
+we can take path from $x$ to $y$.
+
+If $(1-t)x+ty$ does not contain $(1, 0, \ldots, 0)$, take $\gamma_1(t)=(1-t)x+(1, 0, 0, \ldots, 0)t$ for $0\leq t \leq 1$ and $\gamma_2(t)=(1, 0, 0, \ldots, 0)(2-t)+(t-1)y$ for $1\leq t \leq 2$. Then, $\gamma_1,\gamma_2$ does not contains $0$ since $x,y$ is does not be contained in a straight line through $0$ and $(1,0, \ldots, 0)$. Taking \begin{equation*}
+\gamma(t)=\begin{cases}
+\gamma_1(t) & \text{For }0\leq t\leq 1 \\
+\gamma_2(t) & \text{For }1\leq t\leq 2 \\
+\end{cases}
+\end{equation*}
+we can take path from $x$ to $y$.
+
+Therefore, $S^n$ is path connected.
 \section*{Problem 9}
 Define $g:S^1\rightarrow \rr$ such that $g(x)=f(x)-f(-x)$. Then, $g(x)$ is continuous since $f(-x)$ is continuous.($h:x\rightarrow -x$ is continuous on domain $\rr^2$ so on domain $S^1$.) Fix $(1,0)\in S^1$ and assume $g((1,0))>0$, then $g((-1, 0))=-g((1,0))<0$. Since $g$ is continuous and $S^1$ is connected by previous problem, there exists $c$ in $S^1$ such that $g(c)=0$ and it means $f(c)=f(-c)$.
 \section*{Problem 10}
@@ -96,11 +116,11 @@ Let $A$ and $B$ are homeomorphic topological space and $\varphi$ be the homeomor
 \begin{proof}
 For simplicity, let $S=\{a_1, a_2, \ldots, a_n\}$. Modify $\varphi$: $\varphi'=\varphi|_{A'}$. This is bijective, so I'll show that this is bicontinuous. For any open set $V'$ in $B'$, there exists $V$ in $B$ such that $V\setminus V'\subset \varphi(S)$. $\varphi^{-1}(V)$ is open in $A$ and $\left(\varphi'\right)^{-1}(V')=\varphi^{-1}(V)\setminus S$. Therefore, $\varphi'$ is continuous and same argument for $\left(\varphi'\right)^{-1}$ prove that the inverse is continuous. Therefore, $\varphi'$ is hemeomorphism.
 \end{proof}
-Let's subtract $(-1, 0)$, $(1, 0)$, $(0, -1)$ from $T$ and let it $T'$, then $T'$ is connected since $T'= ((-1,1)\times\{0\})\cup (\{0\}\times (-1,0])$. However, subtracting three points from $[0, 1]$ is not connected since ...
+Let's subtract $(-1, 0)$, $(1, 0)$, $(0, -1)$ from $T$ and let it $T'$, then $T'$ is connected since $T'= ((-1,1)\times\{0\})\cup (\{0\}\times (-1,0])$. However, subtracting three points from $[0, 1]$ is not connected: if we subtract a point in $(0, 1)$, it generate separation, so all we can do is subtracting $0, 1$ from $[0, 1]$, but finally, we should subtract a point from $(0,1)$, making the interval disconnected.
 \section*{Problem 11}
 Let $(a,b),(c,d)\in X\times Y$. Since $X,Y$ is path connected, there exists path $\gamma_X:[\alpha,\beta]\rightarrow X$, $\gamma_Y:[\gamma, \delta]\rightarrow Y$ such that $\gamma_X(\alpha)=a$, $\gamma_X(\beta)=c$, $\gamma_Y(\gamma)=b$, $\gamma_Y(\delta)=d$. Normalise the domain by $[0,1]$ using $h_X, h_Y:\rr\rightarrow \rr$, $h_X=(\beta-\alpha)x+\alpha$, $h_Y=(\delta-\gamma)x+\gamma$, $\gamma'_X=\gamma_X\circ h_X$, $\gamma'_Y=\gamma_Y\circ h_Y$. Make $\gamma:[0, 1]\rightarrow X\times Y$ by $\gamma(t)=(\gamma_X(t), \gamma_Y(t))$, then it is continuous and $\gamma(0)=(a,b)$, $\gamma(1)=(c,d)$. Therefore, $X\times Y$ is path connected.
 \section*{Problem 12}
-Let $p,q\in \rr^2\setminus A$ and consider $f_a(x)=(1, a)x+p$, $x\geq 0$. Let $f_a(\rr^+)\cap A\neq \phi$ for all $a\in \rr^+$, then we can set $h:\rr^+\rightarrow A$ such that $h(a)$ is an element in $f_a(\rr^+)\cap A$. Since $f_a(\rr^+)$ is disjoint for different $a$, $h$ is injective and $A$ is uncountable which is contradiction. Therefore, there exists $a$ (even uncountable) that $f_a(\rr^+)\cap A=\phi$. By the same argument there exists $g_b$ such that $g_b(0)=q$ and $g_b(\rr^+)\cap A=\phi$. If $a=b$, we can choose another $b$, so $g_b(\rr^+)\cap f_a(\rr^+)\neq\phi$. Let the point $r$ ...
+Let $p,q\in \rr^2\setminus A$ and consider $f_a(x)=(1, a)x+p$, $x\geq 0$. Let $f_a(\rr)\cap A\neq \phi$ for all $a\in \rr^+$, then we can set $h:\rr^+\rightarrow A$ such that $h(a)$ is an element in $f_a(\rr)\cap A$. Since $f_a(\rr)\setminus\{p\}$ are disjoint for different $a$, $h$ is injective and $A$ is uncountable which is contradiction. Therefore, there exists $a$ (even uncountable) that $f_a(\rr)\cap A=\phi$. By the same argument there exists straight line $g_b$ such that $g_b(0)=q$ and $g_b(\rr)\cap A=\phi$. If $a=b$, we can choose another $b$ different from $a$, so $g_b(\rr)\cap f_a(\rr)\neq\phi$. Let the intersection of point $r$ and glue two path from $p$ to $r$ by $f_a$ and $r$ to $q$ by $g_b$. This is a path from $p$ to $q$. Since it is true for arbitrary $p$ and $q$, $\rr^2\setminus\{A\}$ is path connected.
 \section*{Problem 13}
 I'll state a lemma.
 \begin{lemma}
@@ -111,5 +131,56 @@ For any $p,q\in B_r(x)$ for some $x\in \rr^n$, $p(1-t)+qt\in B_r(x)$ for $t\in [
 \end{proof}
 Let's fix $p\in U$ which is open connected subset of $\rr^n$. Let $P$ be a path connected component in $U$ containing $p$. This is not empty since open ball in $U$ containing $p$ is path connected. Let $P\neq U$. First, $P$ is open since for any $q\in P$, the ball containing $q$ is path connected, and joining path from $p$ to $q$ and from $q$ to a point in the ball makes path from $p$ to the point in the ball. Since $U$ is connected, $P$ is not closed, so $\overline{P}\setminus P\neq \phi$. Let a point in the set $x$. Take a ball in $U$ containing $x$, then it intersect with $P$. Take a point in the intersection, then there exists path from $p$ to the point and from the point to $x$. Therefore, $x\in P$, which is contradiction. Therefore, $P=U$ and $U$ is path connected.
 \section*{Problem 14}
+\begin{enumerate}
+\item[A.] Since determinant function is
+\begin{equation*}
+\det(A)=\sum\limits_{\sigma\in S_n} \text{sgn}(\sigma)a_{\sigma_(1)1}a_{\sigma_(2)2}\cdots a_{\sigma_(n)n}
+\end{equation*}
+where $S_n$ is symmetric group and $\text{sgn}(\sigma)$ is the signature of $\sigma$. This is finite summation of polynomial, so continuous function and codomain is $\rr\setminus\{0\}$. Since codomain is not continuous space, the domain is not continuous.
+\item[B.] Fix $A\in GL^+(n)$. Since it is nonsignular, it can be diagonalized by $V\Lambda V^{-1}$ such that $\det{V}=1$ and $\Lambda$ is a diagonal matrix with eigenvalues. Consider a path $\gamma:[0,1]\rightarrow GL^+(n)$ such that
+\begin{equation*}
+\gamma(t)=
+V\begin{bmatrix}
+\frac{\lambda_1}{(1-t)+\abs{\lambda_1}t} & &  \cdots & \\
 
+ & \frac{\lambda_2}{(1-t)+\abs{\lambda_2}t}& \cdots\\
+\vdots& \vdots& \vdots & \vdots\\
+& & \cdots & \frac{\lambda_n}{(1-t)+\abs{\lambda_n}t}
+\end{bmatrix}V^{-1}.
+\end{equation*}
+Then, $\gamma(t)$ is continuous since $(1-t)+\abs{\lambda_i}t>0$ for $t\in [0,1]$. Also, $\gamma(0)=A$, $\gamma(1)$ is a diagonal matrix with $\pm 1$. I'll show that this matrix is path connected with $I$ and conclude that $A$ is path connected to $I$ in $GL^+(n)$.
+
+Let $\gamma(1)=D$. Then, $\det{D}=1$. Recognizing each column as a vector in $\rr^n$, we can take rotation matrix $R$ making $(-1, 0, \ldots, 0)$ to $(1, 0, \ldots, 0)$.
+\newline 
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+\newline
+I'll let $R_n$ be the rotation matrix in $\rr^n$.
+
+We can make $D$ to $I$ using rotation matrix by the algorithm: assume $(1,1)$ element in $D$ is $-1$, then using $R_n$, we can make the $(1,1)$ term $+1$ and let the matrix $D_1$. Assume $1$ term appears in $(k, k)$ term, then let $D_k=D_{k-1}$ and if the term is $-1$, we can take
+\begin{equation*}
+\begin{bmatrix}
+1& & & & \\
+ &1& & & \\
+ & & & & \\
+ & & &R_{n-k+1} & \\
+ & & & & \\
+\end{bmatrix}
+\end{equation*}
+to $D_{k-1}$ and make $(k,k)$ term $+1$. Let it $D_k$. Proceeding this algorithm, we can finally get $I$ since the rotation matrix is determinant $1$. Finally the multiplication of all rotation matrix used in this procedure is the path from $D$ to $I$.(The domain would be $[0, \pi]$.) Therefore, $A$ and $I$ is path connected.
+
+For any $A,B\in GL^+(n)$, we can connect $A,B$ by path through $I$:
+\begin{equation*}
+\gamma=\begin{cases}
+\gamma_A(t) & \text{For }0\leq t \leq 1 \\
+\gamma_B(2-t) & \text{For }1\leq t\leq 2
+\end{cases}
+\end{equation*}
+which $\gamma_A,\gamma_B$ is a path form $A,B$ to $I$. Since $\gamma_A(1)=\gamma_B(1)$, by pasting lemma, $\gamma$ is continuous path from $A$ to $B$.
+\item[C.] We know that $GL(n)=GL^-(n)\cup GL^+(n)$. Using the same argument above, we can show that any matrix in $GL^-(n)$ is path connected to $I'_n$ such that the only $(n,n)$ term is $-1$, and prove that any $A,B\in GL^-(n)$ is path connected. Therefore, $GL(n)$ has two path connected component.
+\end{enumerate}
 \end{document}
