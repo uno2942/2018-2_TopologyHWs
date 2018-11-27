@@ -1,0 +1,120 @@
+\documentclass{article} 
+\usepackage{graphicx, amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{kotex}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+\usepackage{physics}
+\textwidth 6.5 truein 
+\oddsidemargin 0 truein 
+\evensidemargin -0.50 truein 
+\topmargin -.5 truein 
+\textheight 8.5in
+
+\DeclareMathOperator{\cc}{\mathbb{C}}
+\DeclareMathOperator{\rr}{\mathbb{R}}
+\DeclareMathOperator{\bA}{\mathbb{A}}
+\DeclareMathOperator{\fra}{\mathfrak{a}}
+\DeclareMathOperator{\frb}{\mathfrak{b}}
+\DeclareMathOperator{\frm}{\mathfrak{m}}
+\DeclareMathOperator{\frp}{\mathfrak{p}}
+\DeclareMathOperator{\slin}{\mathfrak{sl}}
+\DeclareMathOperator{\Lie}{\mathsf{Lie}}
+\DeclareMathOperator{\Alg}{\mathsf{Alg}}
+\DeclareMathOperator{\Spec}{\mathrm{Spec}}
+\DeclareMathOperator{\End}{\mathrm{End}}
+\DeclareMathOperator{\rad}{\mathrm{rad}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Sch}{\mathbf{Sch}}
+\newcommand{\Ring}{\mathbf{Ring}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\B}{\mathcal{B}}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+
+
+\begin{document}
+
+
+\title{General Topology - HW 6}
+\author{SungBin Park, Physics, 20150462} 
+
+ \maketitle
+\section*{Problem 1}
+\begin{enumerate}
+\item[($\Rightarrow$)] Let $\prod_{\alpha\in J} X_\alpha$ is nonempty locally compact set and fix $x\in \prod_{\alpha\in J} X_\alpha$. Then, there exists compact subspace $C$ of $\prod_{\alpha\in J} X_\alpha$ containing a open neighborhood $U$ of $x$, which is $X_\alpha$ for all $\alpha\in J$ but finitely many. Let's index $I=\{i_1, \ldots, i_n\}$ for the set $\pi_\alpha(U)\neq X_\alpha$. Since $C\supset u$, $\pi_\alpha(C)=X_\alpha$ and $X_\alpha$ is compact for $\alpha\notin I$ as $\pi_\alpha$ is continuous.
+
+WLOG, I'll show that $X_{j_1}$ is locally compact. Fix $x_{i_1}\in X_{i_1}$ and choose arbitrary point $x_\alpha$, $\alpha\neq i_1$ in $X_\alpha$.(This requires AC.) For $x=(x_\alpha)$, there exists an open neighborhood $U$ for $x$ and compact set $C$ containing $U$. By the definition of product topology, there exists a basis $B$ containing $x$ and $\pi_{i_1}(B)$ is open set in $x_{i_1}$. Also, $\pi_\alpha(C)$ is compact set containing $\pi_{i_1}(B)$. Therefore, $X_{i_1}$ is locally compact.
+
+If $\prod_{\alpha\in J} X_\alpha$ is empty set, it is trivially locally compact since $\phi$ is open, compact set.
+\item[($\Leftarrow$)] Let $x\in\prod_{\alpha\in J} X_\alpha$. Let's index $I=\{i_1, \ldots, i_n\}$ if $X_\alpha$ is not compact. For $\alpha\notin I$, let $U_\alpha=X_\alpha$ and for $x\in I$, find open neighorhood $U_\alpha$ with compact set $C_\alpha$ containing the neighhood. Finally, set $U=\prod_\alpha U_\alpha$ and $C=\prod_\alpha C_\alpha$, the $x\in U$ is open and $C$ is compact set containing $U$ by Tychnoff theorem. Therefore, $\prod_{\alpha\in J} X_\alpha$ is locally compact.
+\end{enumerate}
+\section*{Problem 2}
+\begin{enumerate}
+\item[A.] Let's define $f:\rr^n\rightarrow S^{n}\setminus\{N\}$ by
+\begin{equation*}
+f(x)=\frac{2}{\norm{x}^2+1}\left(x_1, x_2, \ldots, x_n, \frac{\norm{x}^2-1}{2}\right)
+\end{equation*}
+for usual Euclidean norm $\norm{x}=\sqrt{\sum\limits_{i=1}^n x_i^2}$. Then, $\norm{f}=1$ for all $x\in \rr^n$. If $f(x^1)=f(x^2)$, $\frac{\norm{x^1}^2-1}{norm{x^1}^2+1}=\frac{\norm{x^2}^2-1}{norm{x^2}^2+1}$, and $\norm{x_1}=\norm{x_2}$. Also, it means $x^1_i=x^2_i$ for $i=1, \ldots, n$. Therefore, $f$ is injective. For any point in $S^n\setminus\{N\}$ $p=(p_1, \ldots, p_{n+1})$, $f(x)=p$ for $x=\frac{1}{1-p_{n+1}}(p_1, \ldots, p_n, 0)$. Therefore, $f$ is bijective. Since the inverse of $f$ is
+\begin{equation*}
+f^{-1}(x)=\frac{1}{1-x_{n+1}}(x_1, \ldots, x_n, 0)
+\end{equation*}
+which is continuous, $f$ is homeomorphism and $S^n\setminus\{N\}$ is homeomorphic to $\rr^n$.
+\item[B.] Let $r:\rr^{n+1}\rightarrow [0, \infty)$ by sending $r(x)=\norm{x}$, then $r$ is continuous, so $r^{-1}(1)=S^{n}$ is closed in $\rr^{n+1}$. By Heine-Borel theorem, $S^n$ is compact in $\rr^{n+1}$. As a subspace of $\rr^{n+1}$, $S^n$ is Hausdorff. Also, $f(\rr^n)$ is proper subspace of $S^n$ whose closure is equal to $S^n$: For any neighborhood of $\{N\}$, it intersect with $S^n$. Therefore, we can regard $S^n$ is the 1-point compatification of $\rr^n$.
+\end{enumerate}
+\section*{Problem 3}
+Each point in $\mathbb{Z}_{>0}$ is closed and open, and compact. Therefore, it is locally compact Hausdorff. Let $f:\mathbb{Z}_{>0}\rightarrow \{\frac{1}{n} \mid n\in \mathbb{Z}_{>0}\}\subset \mathbb{R}$, $f(n)=\frac{1}{n}$, then it is bijective and bicontinuous since each point is open and closed. Therefore, $\mathbb{Z}_{>0}$ and $\{\frac{1}{n} \mid n\in \mathbb{Z}_{>0}\}$ are homeomorphic. Let $Y=\{0\}\cup \{\frac{1}{n} \mid n\in \mathbb{Z}_{>0}\}$, then it is compact since any open neighborhood of $\{0\}$ contains infinite point of $\{\frac{1}{n} \mid n\in \mathbb{Z}_{>0}\}$. As a subspace of $\rr$, it is Hausdorff. Therefore, $Y$ is one point compactification and unique upto homeomorphism.
+
+Let $Z=\mathbb{Z}_{>0}\cup \{\infty\}$ be a one point compacitifcation of $X$, then take a function $h:Y\rightarrow Z$ such that $h(\frac{1}{n})=n$ and $h(0)=\infty$. Then $h=f$ on $\{\frac{1}{n} \mid n\in \mathbb{Z}_{>0}\}$. For open set $U\subset Y$ does not containing $\{0\}$, $h(U)=f(U)$, which is open in $Z$, and for open set $U$ containing $\{0\}$, $h(Y\setminus U)=f(Y\setminus U)$ is compact in $\mathbb{Z}_{>0}$ and $Z$. Since $Z$ is Hausdorff, $h(Y\setminus U)$ is closed, and $h(U)$ is open in $Z$. Therefore $h$ is open map and by the same argument on $h^{-1}$, we can show that $h^{-1}$ is also open map. Therefore, $h$ is homeomorphism, and $Y$ and $Z$ are homeomorphic.
+
+\section*{Problem 4}
+\begin{enumerate}
+\item[A.] If $X$ is compact, $X$ is compact in $Y$ and closed since $Y$ is Hausdorff. Therefore, $\{\infty\}$ is open in $Y$. Since Hausdorff implies $T_1$, $\{\infty\}$ is closed in $Y$.
+\item[B.] Let $\{\infty\}$ is open in $Y$, then $Y\setminus\{\infty\}$ is closed in $Y$, so compact. Since $X$ is not compact, it is contradiction. Therefore, any open neighborhood of $\{\infty\}$ should intersect with $X$ and $\overline{X}=Y$.
+\end{enumerate}
+\section*{Problem 5}
+\begin{enumerate}
+\item[($\Rightarrow$)] Fix $x\in X$. Let $C$ be a compact set containing open neighborhood $U'$ of $x$. For any open neighborhood $U$ of $x$, $V=U'\cap U$ is a open neighborhood of $x$ contained in $C$. Since $X$ is Hausdorff, $C$ is closed in $X$, and $C\setminus V$ is closed in $X$ and $C$. Therefore, $C\setminus V$ is compact, and there exists an open neighborhood $V'$ of $x$ in $C$ such that $\overline{V'}$ is disjoint from $C\setminus V$. Take $V'\cap V$ as a open neighborhood of $x$ ,then $\overline{V'\cap V}\subset \overline{V'}\subset V\subset U$.
+\item[($\Leftarrow$)] For any $x\in V$, choose $V$ as an open neighborhood such that contained in compact set $\overline{V}$.
+\end{enumerate}
+\section*{Problem 6}
+If $X=\phi$ or one point set, it is trivially locally compact Hausdorff, so I'll assume that $X$ has at least two points. Since $X$ is a subspace of Hausdorff space, $X$ is Hausdorff. Choose $x\in X$, and open neighborhood $x\in U$ in $X$. Choose an open neighborhood $V$ of $\infty$ in $Y$, then $V^c$ is closed in $Y$, which is compact. Since $V^c\subset X$, $V^c$ is compact in $X$. Therefore, $x\in U\subset V^c$ and $X$ is locally compact.
+\section*{Problem 7}
+For $n\in \mathbb{N}$, let $\mathcal{A}_n=\left\{B\left(x, \frac{1}{n}\right)\mid x\in X\right\}$, then it forms an open cover $S_n$ of $X$ for each $n$. Since $X$ is compact, choose finite subcover for each $n$ and construct $\mathcal{B}=\bigcup_{i=1}^\infty S_n$. I'll show that this is a basis for the topology on $X$.
+
+Choose an open set in $X$, and choose a point $x$ in $U$. There exists $N\in \mathbb{N}$ such that $B\left(x, \frac{1}{N}\right)\subset U$ since $X$ has metric topology. Choose $B\in S_{3N}$ such that $x\in B$, then $B$ is contained in $B\left(x, \frac{1}{N}\right)$ since the center of the $B$ and $x$ is smaller than $\frac{1}{3N}$ and the radius of ball is $\frac{1}{3N}$.
+
+For $B_1,B_2\in \mathcal{B}$ such that $B_1\cap B_2\neq \phi$, then the distance between center is smaller than the summation of radius of each ball. Therefore, there exists $x$ and $r>0$ such that $B(x, r)\in B_1\cap B_2$. Therefore, $\mathcal{B}$ forms a countable basis of $X$...
+\section*{Problem 8}
+Let $A$ be the dense subset and $\mathcal{B}=\left\{B\left(x, \frac{1}{n}\right)\mid x\in A,n\in \mathbb{N}\right\}$. I'll show that $\mathcal{B}$ is the basis.
+
+Fix $x$ in $X$ and take an open neighborhood $x\in U$ in $X$. Then, there exists $N\in \mathbb{N}$ such that $B\left(x,\frac{1}{N}\right)\subset U$. Since $A$ is dense in $X$, choose a point $p\in A$ such that $d(x,p)<\frac{1}{3N}$.(If not, $B\left(x, \frac{1}{3N}\right)$ is not in $\overline{A}$, which is contradiction.) For $B\left(p, \frac{1}{2N}\right)\in \mathcal{B}$, it is contained in $B\left(x,\frac{1}{N}\right)$ by the same reason in problem 7.
+
+Repeating the same argument in problem 7, we can verify that $\mathcal{B}$ is a basis for $X$.
+\section*{Problem 9}
+Let $A_i$ is a dense subset of $X_i$. Let $\mathcal{A}\coloneqq\left\{x\in \prod_{i=1}^\infty X_i \mid x_j\in A_j \text{ finitely many, and } x_j=0 \text{ elsewhere}\right\}$. Then, this is countable.(1)
+
+I'll show that this is dense subset of $\prod_{i=1}^\infty X_i$. Fix $x\in\prod_{i=1}^\infty X_i$ and choose an element of basis of product topology $x\in B$. Then, $\pi_i(B)=X_i$ for all but finitely many. For each index $j$ such that $\pi_j(B)\neq X_j$, we can choose $a_j$ such that $\pi_j(B)$ contains since $A_j$ is dense subset of $X_j$. Let $a=a_j$ for the indexes and $a_j=0$ elsewhere, then $a\in \mathcal{A}$ and $a\in B$. Therefore, $\mathcal{A}$ is dense subset of $\prod_{i=1}^\infty X_i$.
+
+(1)...
+\section*{Problem 10}
+I'll show that $X$ has a countable dense subset, then $X$ is 2nd countable by problem 8. Let $I=[0, 1]$. I'll denote functions as $\{(a_1, b_1), \ldots, (a_n, b_n)\}$, $a_i, b_i\in \mathbb{Q}$, $0=a_1<a_2<\ldots<a_n=1$ to say a function $f:I\rightarrow\rr$ such that
+\begin{equation*}
+f(x)=\frac{b_j-b_{j-1}}{a_j-a_{j-1}}(x-a_{j-1})+b_{j-1}\text{ for }a_{j-1}\leq x\leq a_{j}
+\end{equation*}
+By pasting lemma, $f(x)$ is continuous function. I'll show that the collection of such $f$ forms a countable dense subset of $f$.
+
+By Heine-Borel theorem, $I$ is compact subspace, so $f$ is uniformly continuous.(1) For each $\epsilon>0$, choose small enough $\delta>0$ such that $\delta<\frac{1}{3}$, $d(x,y)<\delta\Rightarrow d(f(x),f(y))<\epsilon$. Choose $N\in \mathbb{N}$ such that $\frac{1}{N}<\delta$. Let's divide $I$ by $\{a_1=0, a_2=1/N, \ldots, a_{N}=(N-1)/N, a_{N+1}=1\}$. Then, the distance between $a_j$ and $a_{j+1}$ is smaller than $\delta$. Choose $b_j\in \mathbb{Q}$ such that $\abs{b_j-f(a_j)}\leq \epsilon/2$ since $\mathbb{Q}$ is dense in $\rr$. For a continuous function $h=\{(a_1, b_1), \ldots, (a_n, b_n)\}$, the uniform norm of $f-h$ is smaller or equal to $3\epsilon$ since in each interval $[a_{j-1}, a_j]$, the difference between maximum and minimum of $f-h$ is smaller or equal to $3\epsilon$.(the max/min value of $f-h$ in the interval $[a_{j-1}, a_j]$ is not bigger than $\max f-\min h$ for max and $\min f-\max h$ for min in the interval, but $f(x_1)-h(x_2)-(f(x_3)-h(x_4))=(f(x_1)-f(x_2))-(h(x_2)-h(x_4))\leq 3\epsilon$ for all $x_1, x_2, x_3, x_4\in [a_{j-1}, a_j]$.) It means for any open neighborhood of $f$, there exists intersection with $\mathcal{A}$, and $\mathcal{A}$ is dense subset.
+
+Let $I=[\alpha, \beta]$ for some $\alpha,\beta\in \rr$. For any function $f$ defined on the $I$, we can modify it by $f((\beta-\alpha)x+\alpha)$ which is defined on $[0,1]$ and approximate it by the countable dense subset. After it, we can sends the functions by $\frac{1}{\beta-\alpha}(x-\alpha)$ which does not change uniform metric value. Therefore, $\mathcal{A}'=\{f\in \mathcal{A}\mid f(\frac{1}{\beta-\alpha}(x-\alpha))\}$ forms the countable dense subset.
+
+(1):
+\end{document}
