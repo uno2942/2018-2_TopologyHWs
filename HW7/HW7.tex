@@ -1,0 +1,123 @@
+\documentclass{article} 
+\usepackage{graphicx, amssymb}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{kotex}
+\usepackage{bm}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{mathrsfs}
+\usepackage{tikz-cd}
+\usepackage{mathtools}
+\usepackage{physics}
+\textwidth 6.5 truein 
+\oddsidemargin 0 truein 
+\evensidemargin -0.50 truein 
+\topmargin -.5 truein 
+\textheight 8.5in
+
+\DeclareMathOperator{\cc}{\mathbb{C}}
+\DeclareMathOperator{\rr}{\mathbb{R}}
+\DeclareMathOperator{\bA}{\mathbb{A}}
+\DeclareMathOperator{\fra}{\mathfrak{a}}
+\DeclareMathOperator{\frb}{\mathfrak{b}}
+\DeclareMathOperator{\frm}{\mathfrak{m}}
+\DeclareMathOperator{\frp}{\mathfrak{p}}
+\DeclareMathOperator{\slin}{\mathfrak{sl}}
+\DeclareMathOperator{\Lie}{\mathsf{Lie}}
+\DeclareMathOperator{\Alg}{\mathsf{Alg}}
+\DeclareMathOperator{\Spec}{\mathrm{Spec}}
+\DeclareMathOperator{\End}{\mathrm{End}}
+\DeclareMathOperator{\rad}{\mathrm{rad}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Sch}{\mathbf{Sch}}
+\newcommand{\Ring}{\mathbf{Ring}}
+\newcommand{\T}{\mathcal{T}}
+\newcommand{\B}{\mathcal{B}}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+
+
+\begin{document}
+
+
+\title{General Topology - HW 7}
+\author{SungBin Park, Physics, 20150462} 
+
+ \maketitle
+\section*{Problem 1}
+Let $X$ be a simply ordered set. Fix $p\in X$ and closed set $C\subset X$ such that $p\notin C$. Since $x\in C^c$, there exists $(a,b)\cap C=\phi$, $a\leq p\leq b$. If $a,b\notin C$, take $\{U_c\}$ by
+\begin{equation*}
+U_c=\begin{cases}
+(-\infty, a) & \text{if }c \leq a \\
+(b, \infty) & \text{if }b \leq c
+\end{cases}
+\end{equation*}
+and let $U=\cup_c U_c$. Then, $C\subset U$ and $U\cap (a,b)=\phi$ since $a,b\notin U$
+
+WLOG, I'll deal with the case $a\in C$.(The other case uses similar argument.) If there exists $d\in (a,b)$ such that $a<d<p$, then take $(d,b)$ be a open neighborhood of $p$ and take $U_c$ by
+\begin{equation*}
+U_c=\begin{cases}
+(-\infty, d) & \text{if }c \leq a \\
+(b, \infty) & \text{if }b \leq c.
+\end{cases}
+\end{equation*}
+Then, $(d,b)\cap \cup_c U_c=\phi$ since $d\notin U$.
+
+Assume there is no $d$ such that $a<d<p$, then take $U_a=(-\infty, p)$ and the neighborhood of $p$ be $(a, b)$. Then, they are disjoint, and by taking $\{U_c\}$ by
+\begin{equation*}
+U_c=\begin{cases}
+(-\infty, a) & \text{if }c \leq a \\
+(b, \infty) & \text{if }b \leq c
+\end{cases}
+\end{equation*}
+for $c\neq a$, we again get open neighborhood of $C$ disjoint with $(a,b)$. 
+
+Hence, $X$ is regular.
+\section*{Problem 2}
+Let $C_1,C_2\subset Y$ two disjoint closed sets. I need to choose two disjoint open sets that each contains $C_1$ and $C_2$. Take inverse image of $C_1$, $C_2$ by $f$: $f^{-1}(C_1)$ and $f^{-1}(C_2)$. Since $f$ is continuous, they are closed sets in $X$ and there exists open sets $f^{-1}(C_1)\subset U_1$, $f^{-1}(C_2)\subset U_2$. As $U_1^c$ and $U_2^c$ are closed subset such that each disjoints with $C_1$, there exists $C_1\subset V_1\subset U_1$ and $C_2\subset V_2\subset U_2$ such that $\overline{V_1}\subset U_1$ and $\overline{V_2}\subset U_2$. Take $\left(f(V_1^c)\right)^c$ and $\left(f(V_2^c)\right)^c$ be open neighborhood of $C_1$ and $C_2$. (This is possible since $f^{-1}(C_i)$ are saturated set.) Then, there is am obstacle that there can exists intersection of two open neighborhoods. To remove the intersection, take $f(\overline{V_1})$ and $f(\overline{V_2})$ and let $V_1'=V_1\setminus f(\overline{V_2})$ and $V_2'=V_2\setminus f(\overline{V_1})$. (Since $V_1\subset \overline{V_1}$, $\left(f(V_1^c)\right)^c\subset f(\overline{V_1})$ as $y\notin \left(f(V_1^c)\right)$ means there exists $x\in V_1$ such that $f(x)=y$ (as $f$ is surjective) and $y=f(x)\in f(\overline{V_1})$. It implies that $C_1\subset \left(f(V_1^c)\right)^c\subset f(\overline{V_1})$ and $f(\overline{V_1})$ is disjoint with $C_2$.) Then, $V_1'\cap V_2'=\phi$ and $C_1\subset V_1'$, $C_2\subset V_2$. Therefore, $Y$ is normal space. 
+\section*{Problem 3}
+Let $X$ be a locally compact Hausdorff space. Fix $x\in X$ and closed set $C\subset X$. Take one point compactification of $X$ and denote it $Y$. As a closed set in compact Hausdorff $Y$, $C$ is compact, and there exist disjoint two open sets $x\in U_1$, $C\subset U_2$. To remove $\infty$ from $U_1$ and $U_2$, take two disjoint open neighborhoods $\infty\in V_1$, $x\in V_2$ and let $U_1'=U_1\cap V_2$. Also, make $C\subset V_3$ disjoint from $\infty$ and let $U_2'=U_2\cap V_3$. Then $\infty\notin U_1',U_2'$ and $U_1'\cap U_2'=\phi$. Therefore, locally compact Hausdorff space is regular.
+\section*{Problem 4}
+Let $X$ be a connected normal space and take two different point $a,b\in X$ since $X$ contains at least two points. By the Urysohn lemma, there exists continuous function $f:X\rightarrow [0, 1]$ such that $f(a)=0$, $f(b)=1$. (Note that $T_4$ implies $T_1$.) If there exists $r\in [0,1]$ such that $f^{-1}(r)=\phi$, $f^{-1}([0,r))$ and $f^{-1}((r, 1])$ forms a separation of $X$ and they are nonempty since they contains $a$ and $b$. This is contradiction to connectedness of $X$. Therefore, $f$ is surjective map and $X$ is uncountable.
+\section*{Problem 5}
+Let $f:X\rightarrow[0,1]$ by $f(x,y)=\frac{1}{2}\frac{x}{\sqrt{x^2+y^2}}+\frac{1}{2}$. Then, it is continuous on $X$, the image is in $[0,1]$, $f(A)=\frac{x}{\abs{x}}=0$, $f(B)=\frac{x}{\abs{x}}=1$.
+\section*{Problem 6}
+\section*{Problem 7}
+\section*{Problem 8}
+\section*{Problem 9}
+Since path component containing $x_0$ is $X$, $X$ is path connected. Since $\pi_1(x, X)\simeq \pi_1(x_0, X)$ as group isomorphic sense for all $x\in X$, I'll show that $\pi_1(x_0, X)$ is trivial. Let $\alpha:[0,1]\rightarrow X$ be a loop based at $x_0$, i.e. $\alpha(0)=\alpha(1)=x_0$, then we can make path homotopy by
+\begin{equation*}
+H(s, t)=(1-t)\alpha(s)+tx_0.
+\end{equation*}
+Then, $H(s, 0)=\alpha(s)$, $H(s, 1)=x_0$, $H(0, t)=H(1, t)=x_0$. Also, it is continuous on $I\times I$ since $\alpha(s)$ is continuous. Therefore, $[\alpha]=1$ and $\pi_1(x_0, X)$ is trivial.
+\section*{Problem 10}
+Since $\alpha(1)=\beta(0)$, $\gamma=\alpha*\beta$ is well-defined. $\hat{\alpha}:\pi_1(\alpha(0), X)\rightarrow \pi_1(\alpha(1), X)$, $\hat{\beta}:\pi_1(\alpha(0), X)\rightarrow \pi_1(\beta(1), X)$, so $\hat{\gamma}:\pi_1(\alpha(0), X)\rightarrow \pi_1(\beta(1), X)$ and $\hat{\gamma}=[\bar{\gamma}]*[f]*[\gamma]$ for $f\in\pi_1(\alpha(0), X)$. If we expand it,
+\begin{equation*}
+\hat{\gamma}[f]=[\bar{\gamma}]*[f]*[\gamma]=[\bar{\beta}*\bar{\alpha}]*[f]*[\alpha*\beta]=[\bar{\beta}]*[\bar{\alpha}]*[f]*[\alpha]*[\beta]=[\bar{\beta}]*\hat{\alpha}[f]*[\beta]=\hat{\beta}\circ \hat{\alpha}[f].
+\end{equation*}
+Therefore, $\hat{\beta}\circ \hat{\alpha}=\hat{\gamma}$
+\section*{Problem 11}
+Assume $\pi_1(X, x_0)$ is trivial and $f:S^1\rightarrow X$ is a continuous function. Construct $h:[0,1]\rightarrow S^1$ by $h(r)=e^{2\pi i r}$. Then, $f'=f\circ h=[0,1]\rightarrow X$ is a path based at $f(0)$ and path homotopic to $f(0)$. Construct homotopy $F(s,t)$ such that $F(s, 0)=f'(s)$, $F(s,1)=f(0)$. Consider the following universial property:
+\begin{figure}[h]
+\centering
+\begin{tikzcd}
+I\times I  \arrow[r,"p"] \arrow[dr,dashed,"F"] &
+D^2 \arrow[d,"g"']  \\
+ & X 
+\end{tikzcd}
+\end{figure}
+,where the $p$ is given by $p(s,t)=(1-t)e^{2\pi i s}$. This is quotient map from $I\times I$ to $D^2$ since $p$ is surjective, continuous, and closed map since $I\times I$ is compact and $D^2$ is Hausdorff space. Also, $\{s=0\}\cup\{t=1\}\cup \{s=1\}\subset F^{-1}(f(0))$, so we can define $g$. Since $F$ is continuous, by universal property, $g$ is continuous and it extends $f$.
+
+Conversely, assume that there exists $g$ extending $f$. It means for any loop $\alpha$ based at $x_0$, we can make $f$ such that $f(e^{2\pi i s})=\alpha(s)$ and extending $f$, we can get $g$. Define $F:I\times I\rightarrow D^2$ by
+\begin{equation*}
+F(s,t)=\begin{cases}
+g(s,t)...
+\end{cases}
+\end{equation*}
+\section*{Problem 12}
+\section*{Problem 13}
+\end{document}
