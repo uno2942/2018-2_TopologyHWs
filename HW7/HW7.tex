@@ -86,8 +86,19 @@ Let $X$ be a connected normal space and take two different point $a,b\in X$ sinc
 \section*{Problem 5}
 Let $f:X\rightarrow[0,1]$ by $f(x,y)=\frac{1}{2}\frac{x}{\sqrt{x^2+y^2}}+\frac{1}{2}$. Then, it is continuous on $X$, the image is in $[0,1]$, $f(A)=\frac{x}{\abs{x}}=0$, $f(B)=\frac{x}{\abs{x}}=1$.
 \section*{Problem 6}
+In the class, we showed that if $X$ is a normal space and $A$ is a closed subspace of $X$, any continuous function of $A$ into the closed interval $[a,b]$ of $\rr$ may be extended to a continuous function of all of $X$ into $[a,b]$. I need change $[a,b]$ to $\rr$.
+
+Let $f:A\rightarrow \rr$, then using $\tan^{-1}(x)$, we can make continuous function $\tilde{f}=\tan^{-1}(x)\circ f:A\rightarrow (-\pi/2,\pi/2)$. Abusing notation, I'll denote $\tilde{f}$ by $f$, then $f$ is a continuous function from $A$ to $(-\pi/2,\pi/2)$. We can enlarge the codomain of $f$ by $[-\pi/2,\pi/2]$ and apply Tietze extension theorem to get $g:X\rightarrow [-\pi/2,\pi/2]$. What I want to do is modify the codomain $[-\pi/2,\pi/2]$ to $(-\pi/2,\pi/2)$ and sends it by $\tan(x)$ to make codomain $\rr$. To do this, first, note that $B=g^{-1}(-\pi/2)\cup g^{-1}(\pi/2)$ is closed subspace in $X$, which is normal space. Also, it is disjoint from $A$. Thus, we can get continuous function $\phi(x):X\rightarrow [0,1]$, whose value on $B$ is $0$ and on $A$ is $1$. Our desired function is $g\phi$ since $g\phi=0$ on $B$ and $g\phi=g=f$ on $A$. Therefore, $g\phi:X\rightarrow (-\pi/2,\pi/2)$ and $\tan \circ g\phi:X\rightarrow \rr$. Finally, we can easily check $\left(\tan \circ g\phi\right)(a)=f(a)$ on $a\in A$.
 \section*{Problem 7}
+If $X$ is normal, the Tietze extension theorem is satisfied, so I'll show that if $X$ is not normal, the conclusion of the Tietze extension theorem does not satisfied.
+
+Consider $\rr$ with co-finite topology. Fix closed subspace $A=\{0,1\}\subset \rr$ and $f:A\rightarrow[-1, 2]$, $f(0)=0$, $f(1)=1$. Since there exists open set $U=\rr\setminus\{0\}$, $V=\rr\setminus\{1\}$ in $\rr$, $A$ has discrete topology, so $f$ is continuous. Assume there exists continuous function $\tilde{f}:\rr\rightarrow[-1,2]$ such that $\tilde{f}|_A=f$. Let $\tilde{U}=f^{-1}((1/2, 3/2))$, then $1\in \tilde{U}$ and $\tilde{U}^c$ is finite set. By the same reason, $\tilde{V}=f^{-1}((-1/2, 1/2))$ is open set containing $0$ and $\tilde{V}^c$ is finite. However, it means $\tilde{U}\cap \tilde{V}\neq \phi$ and $f^{-1}((-1/2, 1/2))\cap f^{-1}((1/2, 3/2))\neq \phi$, which is contradiction. Therefore, the conclusion of Tietze extension theorem does not hold.
 \section*{Problem 8}
+\begin{enumerate}
+\item[(a)]
+At $n$th step, the number of segment is $2(4^n-2)+2$. Fix $N>3$, $0\leq n_1\leq 2(4^N-2)+1$ and $t\in \left[\frac{n_1}{2(4^N-2)+2}, \frac{n_1+1}{2(4^N-2)+2}\right]$. Then, for $n> N$, $\frac{4^{n-N} n_1}{2(4^n-2)+2}=\frac{n_1}{2(4^N-2)+4-2\cdot 4^{N-n}}<\frac{n_1}{2(4^N-2)+2}$ and $\frac{4^{n-N} (n_1+1)+4^{n-N}}{2(4^n-2)+2}=\frac{n_1+2}{2(4^N-2)+4-2\cdot 4^{N-n}}>\frac{n_1+1}{2(4^N-2)+2}$. Geometrically, $\frac{4^{n-N} n_1}{2(4^n-2)+2}<\frac{n_1}{2(4^N-2)+2}<t<\frac{n_1+1}{2(4^N-2)+2}<\frac{4^{n-N} (n_1+1)+4^{n-N}}{2(4^n-2)+2}$ means that $f_n(t)$ is contained in the index of rectangle of $n_1-2$ from $n_1+2$ at $N$th step for all $n>N$. (If $n_1=2(4^N-2)+1$, then take upper bound as $n_1+1$.) Since the size of rectangle goes to $0$ by $\frac{1}{4^n}$ speed, it means $\abs{f_{n_1}(t)-f_{n_2}(t)}\leq \frac{2}{2^N}$ for all $n_1,n_2>N$. Therefore, this is Cauchy sequence in $\rr^2$ for fixed $t$ and converges to some function $f$. As $n_1\rightarrow \infty$, $\abs{f-f_n(t)}\leq \frac{2}{2^N}$ for $n>N$ for all $t\in [0,1]$ and it means $\{f_n\}\rightarrow f$ uniformly. Therefore, $f$ is continuous as $f_n$ are continuous.
+\item[(b)] Since $f$ is continuous and $[0,1]\times [0,1]$ is Hausdorff, $f([0,1])$ is compact in $[0,1]\times [0,1]$. For any point $p\in[0,1]\times [0,1]$, it is contained in some rectangle, and the image of $f_n$ pass through the rectangle for all $n$. Also, I showed that if there exists $f_N(t)$ in some rectangle for some $N$, the image of $f_n(t)$ does not move too much for all $n>N$, so there exists $t\in [0,1]$ such that for any rectangle at $N$th step, the $f(t)$ is in the rectangle which is determined at $N$th step. It means for any $p\in [0,1]\times [0,1]$, there exists $t_n$ such that $\abs{f_n-p}\leq 1/n$. Therefore, $\overline{f([0,1])}=[0,1]\times [0,1]$. However, $f([0,1])$ is closed, so $f([0,1])=[0,1]\times [0,1]$ and $f$ is surjective.
+\end{enumerate}
 \section*{Problem 9}
 Since path component containing $x_0$ is $X$, $X$ is path connected. Since $\pi_1(x, X)\simeq \pi_1(x_0, X)$ as group isomorphic sense for all $x\in X$, I'll show that $\pi_1(x_0, X)$ is trivial. Let $\alpha:[0,1]\rightarrow X$ be a loop based at $x_0$, i.e. $\alpha(0)=\alpha(1)=x_0$, then we can make path homotopy by
 \begin{equation*}
@@ -105,19 +116,47 @@ Assume $\pi_1(X, x_0)$ is trivial and $f:S^1\rightarrow X$ is a continuous funct
 \begin{figure}[h]
 \centering
 \begin{tikzcd}
-I\times I  \arrow[r,"p"] \arrow[dr,dashed,"F"] &
-D^2 \arrow[d,"g"']  \\
+I\times I  \arrow[r,"p"] \arrow[dr,"F"] &
+D^2 \arrow[d,dashed,"g"']  \\
  & X 
 \end{tikzcd}
 \end{figure}
 ,where the $p$ is given by $p(s,t)=(1-t)e^{2\pi i s}$. This is quotient map from $I\times I$ to $D^2$ since $p$ is surjective, continuous, and closed map since $I\times I$ is compact and $D^2$ is Hausdorff space. Also, $\{s=0\}\cup\{t=1\}\cup \{s=1\}\subset F^{-1}(f(0))$, so we can define $g$. Since $F$ is continuous, by universal property, $g$ is continuous and it extends $f$.
 
-Conversely, assume that there exists $g$ extending $f$. It means for any loop $\alpha$ based at $x_0$, we can make $f$ such that $f(e^{2\pi i s})=\alpha(s)$ and extending $f$, we can get $g$. Define $F:I\times I\rightarrow D^2$ by
+Conversely, assume that there exists $g$ extending $f$. Let $i$ be a inclusion from $S^1$ to $B^2$, then $g\circ i=f$. Therefore, $g_*\circ i_*=f_*$. Since $i_*:\pi_1(S^1, b_0)\rightarrow \pi_1(B^2, b_0)$ for $b_0\in S^1$, $i_*$ should be trivial and $f_*$ is trivial. 
+\section*{Problem 12}
+Let $\alpha$ and $\beta$ are path-homotopic, then by definition of equivalence class by path-homotopy relation, $[\alpha]=[\beta]$. Let $x_0=\alpha(0)=\beta(0)$ and $x_1=\alpha(1)=\beta(1)$, then $\hat{\alpha},\hat{\beta}:\pi_1(X, x_0)\rightarrow \pi_1(X, x_1)$. For any $[f]\in \pi_1(X, x_0)$, $\hat{\alpha}([f])=[\bar{\alpha}]*[f]*[\alpha]=[\bar{\beta}]*[f]*[\beta]=\hat{\beta}([f])$ since $[\alpha]=[\beta]\Rightarrow [\bar{\alpha}]*[\alpha]*[\bar{\beta}]=[\bar{\alpha}]*[\bar{\beta}]*[\bar{\beta}]\Rightarrow [\bar{\beta}]=[\bar{\alpha}]$. Therefore, $\hat{\alpha}=\hat{\beta}$.
+\section*{Problem 13}
+\begin{lemma}
+If $\alpha,\beta:I\rightarrow X$ be two paths such that $\alpha(1)=\beta(0)$. Then, $\overline{\alpha*\beta}=\bar{\beta}*\bar{\alpha}$.
+\end{lemma}
+\begin{proof}
+By the definition of $\overline{\alpha*\beta}$,
 \begin{equation*}
-F(s,t)=\begin{cases}
-g(s,t)...
+\overline{\alpha*\beta}(t)(\alpha*\beta)(1-t)=\begin{cases}
+\alpha(2(1-t)) & \text{if }0<1-t<1/2 \\
+\beta(1-2(1-t)) & \text{if }1/2<1-t<1.
 \end{cases}
 \end{equation*}
-\section*{Problem 12}
-\section*{Problem 13}
+Then,
+\begin{equation*}
+\overline{\alpha*\beta}(t)(\alpha*\beta)(1-t)=\begin{cases}
+\bar{alpha}(2t) & \text{if }1/2<t<1 \\
+\bar{beta}(1-2t) & \text{if }0<t<1/2.
+\end{cases}
+\end{equation*}
+which is $\bar{\beta}*\bar{\alpha}$.
+\end{proof}
+($\Rightarrow$) Suppose $\pi_1(X, x_0)$ is Abelian group for all $x_0\in X$. Then, for any path $\alpha,\beta:I\rightarrow X$ with $\alpha(0)=\beta(0)$, $\alpha(1)=\beta(1)$, $[\alpha*\bar{\beta}]\in \pi_1(X, \alpha(0))$. Let $[f]\in \pi_1(X, \alpha(0))$, $[\overline{\alpha*\bar{\beta}}]*[f]*[\alpha*\bar{\beta}]=[\bar{\bar{\beta}}*\bar{\alpha}]*[f]*[\alpha*\bar{\beta}]=\hat{\bar{\beta}}\circ \hat{\alpha}([f])$ by the lemma above. On the other hands, $[\bar{\bar{\beta}}*\bar{\alpha}]*[f]*[\alpha*\bar{\beta}]=[\overline{\bar{\beta}}*\bar{\alpha}]*[\alpha*\bar{\beta}]*[f]=[f]$ since $\pi_1(X, \alpha(0))$ is Abelian group. Thus, $\hat{\bar{\beta}}\circ \hat{\alpha}([f])=[f]$ and $\hat{\alpha}([f])=\hat{\beta}([f])$ since $\hat{\beta}^{-1}=\hat{\bar{\beta}}$. Therefore, $\hat{\alpha}=\hat{\beta}$.
+
+($\Leftarrow$) Suppose $\hat{\alpha}=\hat{\beta}$ for all paths $\alpha$, $\beta$ in $X$ such that $\alpha(0)=\beta(0)$ and $\alpha(1)=\beta(1)$. Then, $\hat{\bar{\beta}}\circ \hat{\alpha}$ is identity on $\pi_1(X, \alpha(0))$ and $[\bar{\bar{\beta}}*\bar{\alpha}]*[f]*[\alpha*\bar{\beta}]=[f]$ for all $[f]\in \pi_1(X, \alpha(0))$.
+
+Fix $x_0\in X$ and $[f_1], [f_2]\in \pi_1(X, x_0)$. For $f_2$, which is selected by representative. Make two paths $\alpha,\beta:I\rightarrow X$ by $\alpha(t)=f_2(t/2)$ and $\beta(t)=f_2((t+1)/2)$. Then, $\alpha*\beta=f_2$ since 
+\begin{equation*}
+\alpha*\beta(t)=\begin{cases}
+\alpha(2t)=f_2(t) & \text{if }0\leq t \leq 1/2 \\
+\beta(2(t-1/2))=f_2(t) & \text{if }1/2\leq t\leq 1.
+\end{cases}
+\end{equation*}
+Therefore, $[\bar{f_2}]*[f_1]*[f_2]=[\bar{\beta}*\bar{\alpha}]*[f_1]*[\alpha*\beta]=\hat{\bar{\beta}}\hat{\alpha}([f_1])=[f_1]$ and $[f_2]*[\bar{f_2}]*[f_1]*[f_2]=[f_1]*[f_2]=[f_2]*[f_1]$. This is true for all $[f_1],[f_2]$ and for all $x_0$. Therefore, $\pi_1(X, x_0)$ is abelian for all $x_0\in X$.
 \end{document}
